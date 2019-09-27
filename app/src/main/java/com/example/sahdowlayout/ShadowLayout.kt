@@ -67,14 +67,15 @@ class ShadowLayout : FrameLayout {
             }
             val width = child.measuredWidth.toFloat()
             val height = child.measuredHeight.toFloat()
-            val input = Bitmap.createBitmap((width + shadow.x + dp(shadow.blur)).toInt(), (height + shadow.y + dp(shadow.blur)).toInt(), Bitmap.Config.ARGB_8888)
+            val input = Bitmap.createBitmap((width + dp(shadow.x) + dp(shadow.blur*2)).toInt(), (height + dp(shadow.y) + dp(shadow.blur*2)).toInt(), Bitmap.Config.ARGB_8888)
             val filter = PorterDuffColorFilter(Color.parseColor(shadow.color), PorterDuff.Mode.SRC_IN)
             paint.colorFilter = filter
             val canvasBitmap = Canvas(input)
             val paint1 = Paint()
             paint1.color = Color.GREEN
+//            canvasBitmap.drawRect(0f,0f,canvas.width.toFloat(),canvas.height.toFloat(),paint1)
             canvasBitmap.save()
-            canvasBitmap.translate(shadow.x.toFloat(), shadow.y.toFloat())
+            canvasBitmap.translate(dp(shadow.x).toFloat()+dp(shadow.blur), dp(shadow.y).toFloat()+dp(shadow.blur))
             child.draw(canvasBitmap)
             canvasBitmap.restore()
             canvasBitmap.drawBitmap(input, 0f, 0f, paint)
@@ -91,7 +92,7 @@ class ShadowLayout : FrameLayout {
             val outAlloc = Allocation.createFromBitmap(rsScript!!, result!!)
             blur.forEach(outAlloc)
             outAlloc.copyTo(result!!)
-            canvas.drawBitmap(result!!, child.x, child.y, paint)
+            canvas.drawBitmap(result!!, child.x-dp(shadow.blur), child.y-dp(shadow.blur), paint)
 
         }
         return super.drawChild(canvas, child, drawingTime)
