@@ -49,8 +49,7 @@ public class MainActivity extends AppCompatActivity {
         shadow.setAlpha(90);
         shadow.setBlur(20);
         shadow.setColor("#ff003f");
-//        shadow.setColor("#64424242");
-//        shadow.setColor("#96424242");
+//        shadow.setColor("#64424242"); //for test
         shadow.setX(-10);
         shadow.setY(20);
         button1.setTag(R.id.shadow,shadow);
