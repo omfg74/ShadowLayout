@@ -1,57 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
-    android:clipToPadding="false"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-   <com.example.sahdowlayout.ShadowLayout
-       android:clipToPadding="false"
-       android:clipChildren="false"
-       android:layout_width="100dp"
-       android:layout_height="100dp"
-       android:layout_gravity="center"
-       >
-       <View
-           android:layout_width="100dp"
-           android:layout_height="100dp"
-           android:background="#00cc00"
-           android:layout_gravity="center"
-           >
-
-       </View>
-   </com.example.sahdowlayout.ShadowLayout>
-
     <com.example.sahdowlayout.ShadowLayout
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="20dp"
-        >
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:background="#CC00cc"
-            >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clipChildren="false">
 
-        </Button>
-    </com.example.sahdowlayout.ShadowLayout>
-
-    <com.example.sahdowlayout.ShadowLayout
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="20dp"
-        >
-        <View
+        <com.example.sahdowlayout.views.ShadowTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_launcher_foreground"
-            >
-
-        </View>
+            android:text="TEXT SHADOW" />
     </com.example.sahdowlayout.ShadowLayout>
-</FrameLayout>
+
+    <com.example.sahdowlayout.ShadowLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <com.example.sahdowlayout.views.ShadowButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="text" />
+
+        <com.example.sahdowlayout.views.ShadowBaseView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginLeft="56dp"
+            android:background="@color/colorAccent" />
+    </com.example.sahdowlayout.ShadowLayout>
+</LinearLayout>

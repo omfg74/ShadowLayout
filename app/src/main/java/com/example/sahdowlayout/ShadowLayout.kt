@@ -1,6 +1,7 @@
 package com.example.sahdowlayout
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.graphics.*
 import android.os.Build
 import android.util.AttributeSet
@@ -24,7 +25,9 @@ class ShadowLayout : FrameLayout {
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes){
+        this.clipChildren=false
+    }
 
     private fun dp(px: Int): Int {
         val density = resources.displayMetrics.density
@@ -47,7 +50,7 @@ class ShadowLayout : FrameLayout {
             val width = child.measuredWidth.toFloat()
             val height = child.measuredHeight.toFloat()
             val input = Bitmap.createBitmap((width + dp(shadow.x) + dp(shadow.blur * 2)).toInt(), (height + dp(shadow.y) + dp(shadow.blur * 2)).toInt(), Bitmap.Config.ARGB_8888)
-            val filter = PorterDuffColorFilter(Color.parseColor(shadow.color), PorterDuff.Mode.SRC_IN)
+            val filter = PorterDuffColorFilter(shadow.color, PorterDuff.Mode.SRC_IN)
             paint.colorFilter = filter
             val canvasBitmap = Canvas(input)
             canvasBitmap.save()

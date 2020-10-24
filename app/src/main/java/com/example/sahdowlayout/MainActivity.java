@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ShadowLayout shadowLayout = new ShadowLayout(this);
-        setContentView(shadowLayout);
+        setContentView(R.layout.activity_main);
 
         addOrangeButton(shadowLayout);
         addBlueButton(shadowLayout);
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         addWhitebutton(shadowLayout);
         addGreyButton(shadowLayout);
         addFace(shadowLayout);
+
 
     }
 
@@ -43,16 +44,16 @@ public class MainActivity extends AppCompatActivity {
         button1.setTextColor(Color.WHITE);
         button1.setTextSize(sp(6));
         button1.setBackgroundColor(Color.parseColor("#FF4200"));
-        button1.setBackground(ContextCompat.getDrawable(this,R.drawable.round_corners_ornge));
+        button1.setBackground(ContextCompat.getDrawable(this, R.drawable.round_corners_ornge));
         button1.setLayoutParams(layoutParams);
         Shadow shadow = new Shadow();
         shadow.setAlpha(90);
         shadow.setBlur(20);
-        shadow.setColor("#ff003f");
+        shadow.setColor(Color.parseColor("#ff003f"));
 //        shadow.setColor("#64424242"); //for test
         shadow.setX(-10);
         shadow.setY(20);
-        button1.setTag(R.id.shadow,shadow);
+        button1.setTag(R.id.shadow, shadow);
         shadowLayout.addView(button1);
     }
 
@@ -67,15 +68,15 @@ public class MainActivity extends AppCompatActivity {
         button1.setTextColor(Color.WHITE);
         button1.setTextSize(sp(6));
         button1.setBackgroundColor(Color.parseColor("#1951F5"));
-        button1.setBackground(ContextCompat.getDrawable(this,R.drawable.round_corners_blue));
+        button1.setBackground(ContextCompat.getDrawable(this, R.drawable.round_corners_blue));
         button1.setLayoutParams(layoutParams);
         Shadow shadow = new Shadow();
         shadow.setAlpha(90);
         shadow.setBlur(20);
-        shadow.setColor("#1951F5");
+        shadow.setColor(Color.parseColor("#1951F5"));
         shadow.setX(0);
         shadow.setY(10);
-        button1.setTag(R.id.shadow,shadow);
+        button1.setTag(R.id.shadow, shadow);
         shadowLayout.addView(button1);
     }
 
@@ -91,15 +92,15 @@ public class MainActivity extends AppCompatActivity {
         button1.setTextColor(Color.WHITE);
         button1.setTextSize(sp(6));
         button1.setBackgroundColor(Color.parseColor("#FF003F"));
-        button1.setBackground(ContextCompat.getDrawable(this,R.drawable.round_corners_red));
+        button1.setBackground(ContextCompat.getDrawable(this, R.drawable.round_corners_red));
         button1.setLayoutParams(layoutParams);
         Shadow shadow = new Shadow();
         shadow.setAlpha(90);
         shadow.setBlur(20);
-        shadow.setColor("#FF003F");
+        shadow.setColor(Color.parseColor("#FF003F"));
         shadow.setX(0);
         shadow.setY(10);
-        button1.setTag(R.id.shadow,shadow);
+        button1.setTag(R.id.shadow, shadow);
         shadowLayout.addView(button1);
     }
 
@@ -115,15 +116,15 @@ public class MainActivity extends AppCompatActivity {
         button1.setTextColor(Color.RED);
         button1.setTextSize(sp(6));
         button1.setBackgroundColor(Color.parseColor("#FFFFFF"));
-        button1.setBackground(ContextCompat.getDrawable(this,R.drawable.round_corners_white));
+        button1.setBackground(ContextCompat.getDrawable(this, R.drawable.round_corners_white));
         button1.setLayoutParams(layoutParams);
         Shadow shadow = new Shadow();
         shadow.setAlpha(90);
         shadow.setBlur(20);
-        shadow.setColor("#000000");
+        shadow.setColor(Color.parseColor("#000000"));
         shadow.setX(0);
         shadow.setY(10);
-        button1.setTag(R.id.shadow,shadow);
+        button1.setTag(R.id.shadow, shadow);
         shadowLayout.addView(button1);
     }
 
@@ -145,10 +146,10 @@ public class MainActivity extends AppCompatActivity {
         shadow.setAlpha(90);
         shadow.setBlur(10);
 //        shadow.setColor("#1a3a3f4a");
-        shadow.setColor("#000000");
+        shadow.setColor(Color.parseColor("#000000"));
         shadow.setX(0);
         shadow.setY(10);
-        button1.setTag(R.id.shadow,shadow);
+        button1.setTag(R.id.shadow, shadow);
         shadowLayout.addView(button1);
     }
 
@@ -161,7 +162,8 @@ public class MainActivity extends AppCompatActivity {
         float density = getResources().getDisplayMetrics().scaledDensity;
         return (int) (px * density);
     }
-    private void addFace(ShadowLayout shadowLayout){
+
+    private void addFace(ShadowLayout shadowLayout) {
         View view = new View(this);
 
         Shadow shadow = new Shadow();
@@ -169,14 +171,14 @@ public class MainActivity extends AppCompatActivity {
         shadow.setBlur(20);
 //        shadow.setColor("#33ff003f");
 //        shadow.setColor("#64424242");
-        shadow.setColor("#96424242");
+        shadow.setColor(Color.parseColor("#96424242"));
         shadow.setX(50);
         shadow.setY(50);
-        ViewGroup.MarginLayoutParams layoutParams = new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        ViewGroup.MarginLayoutParams layoutParams = new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(dp(10), dp(208), 0, 0);
         view.setLayoutParams(layoutParams);
         view.setBackgroundResource(R.drawable.ic_launcher_foreground);
-        view.setTag(R.id.shadow,shadow);
+        view.setTag(R.id.shadow, shadow);
         shadowLayout.addView(view);
     }
 }

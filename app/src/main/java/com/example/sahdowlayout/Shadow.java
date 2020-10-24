@@ -1,8 +1,10 @@
 package com.example.sahdowlayout;
 
+import android.graphics.Color;
+
 public class Shadow {
     private int blur;
-    private String color;
+    private int color;
     private int alpha;
     private int x;
     private int y;
@@ -12,7 +14,7 @@ public class Shadow {
         return blur;
     }
 
-    public String getColor() {
+    public int getColor() {
         return color;
     }
 
@@ -32,7 +34,7 @@ public class Shadow {
         this.blur = blur;
     }
 
-    public void setColor(String color) {
+    public void setColor(int color) {
         this.color = color;
     }
 
