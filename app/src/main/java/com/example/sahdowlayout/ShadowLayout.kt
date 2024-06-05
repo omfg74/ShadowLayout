@@ -81,6 +81,7 @@ class ShadowLayout : FrameLayout {
     override fun onDetachedFromWindow() {
         rsScript?.destroy()
         rsScript = null
+        result?.recycle()
         super.onDetachedFromWindow()
     }
 }
